@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Form Kuliah</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form name="formPendaftaran" action="daftar.php" method="post" onsubmit ="return validateForm()" style="max-width: 400px; margin: 0 auto; margin-top: 20px;">
+            <div class="form-group">
+                <label style="font-weight: bold;">Nama Mahasiswa</label>
+                <input type="text" name="nama" placeholder="Nama lengkap" class="form-control">
+            </div>
+            <div class="form-group">
+                <label style="font-weight: bold;">Email</label>
+                <input type="email" name="email" placeholder="Email Aktif" class="form-control">
+                <small id="emailHelp" class="form-text text-muted">Email Akan Digunakan Untuk Mengirimkan Notifikasi.</small>
+            </div>
+            <div class="form-group">
+                <label style="font-weight: bold;">NRP</label>
+                <input type="text" name="NRP" placeholder="NRP" class="form-control">
+            </div>
+            <div class="form-group">
+                <label style="font-weight: bold;">Mata Kuliah</label>
+                <select name="jurusan" class="form-control">
+                        <option value="0">Pilih Mata Kuliah</option>
+                        <option value="1">Pemrograman Web</option>
+                        <option value="2">Sistem Basis Data</option>
+                        <option value="3">Pemrograman Berorientasi Objek</option>
+                        <option value="4">Matematika Diskrit</option>
+                        <option value="5">Aljabar Linier</option>
+                        <option value="6">Teori Graf</option>
+                        <option value="7">Konsep Kecerdasan Artifisial</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                <label style="font-weight: bold;">Dosen</label>
+                <select name="dosen" class="form-control">
+                    <option value="0">Pilih Dosen</option>
+                    <option value="1">Fajar Baskoro, S.Kom., MT.</option>
+                    <option value="2">Sarwosri, S.Kom. M.T</option>
+                    <option value="3">Rizky Januar Akbar, S.Kom., M.Eng.</option>
+                    <option value="4">Arya Yudhi Wijaya, S.Kom, M.Kom.</option>
+                    <option value="5">Dr. Bilqis Amaliah, S.Kom.,M.Kom.</option>
+                    <option value="6">Victor Hariadi, S.Si., M.Kom.</option>
+                    <option value="7">Dini Adni Navastara, S.Kom, M.Sc.</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            if (document.forms["formPendaftaran"]["nama"].value == "") {
+                alert("Nama Belum Terisi");
+                document.forms["formPendaftaran"]["nama"].focus();
+                return false;
+            }
+            if (document.forms["formPendaftaran"]["email"].value == "") {
+                alert("Email Belum Terisi");
+                document.forms["formPendaftaran"]["email"].focus();
+                return false;
+            }
+            if (document.forms["formPendaftaran"]["NRP"].value == "") {
+                alert("NRP Belum Terisi");
+                document.forms["formPendaftaran"]["NRP"].focus();
+                return false;
+            }
+            if (document.forms["formPendaftaran"]["matkul"].selectedIndex < 1) {
+                alert("Pilih Mata Kuliah Terlebih Dahulu");
+                document.forms["formPendaftaran"]["matkul"].focus();
+                return false;
+            }
+            if (document.forms["formPendaftaran"]["dosen"].selectedIndex < 1) {
+                alert("Pilih Dosen Terlebih Dahulu");
+                document.forms["formPendaftaran"]["dosen"].focus();
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
